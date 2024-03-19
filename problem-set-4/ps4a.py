@@ -274,10 +274,26 @@ def playGame(wordList):
       * If the user inputs 'e', exit the game.
       * If the user inputs anything else, tell them their input was invalid.
  
-    2) When done playing the hand, repeat from step 1    
+    2) When done playing the hand, repeat from step 1
     """
-    # TO DO ... <-- Remove this comment when you code this function
-    print("playGame not yet implemented.") # <-- Remove this line when you code the function
+    is_replay = False
+    while True:
+        cmd = input('Enter n to deal a new hand, r to replay the last hand,'
+                    'or e to end game: ')
+        if cmd == 'n':
+            hand = dealHand(HAND_SIZE)
+            is_replay = True
+            playHand(hand, wordList, HAND_SIZE)
+        elif cmd == 'r':
+            if is_replay:
+                playHand(hand, wordList, HAND_SIZE)
+            else:
+                print('You have not played a hand yet. Please play a new hand'
+                      'first.')
+        elif cmd == 'e':
+            break
+        else:
+            print('Invalid Command.')
    
 
 
