@@ -226,6 +226,7 @@ class CiphertextMessage(Message):
         '''
         shift = 0
         word_list = load_words(WORDLIST_FILENAME)
+        max = 0
         for i in range(1, 26):
             words = self.apply_shift(i).split()
             count = 0
